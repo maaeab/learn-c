@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include "lib.h"
+
+int cumulative (int n);
+// notice the use of extern to declare a variable that is dfined in another file.
+extern int a;
+
+int main ( int argc, char** argv) {
+    int x = a;
+    printf (" sum 1 : %d\n", cumulative(x));
+    x = 20;
+    printf (" sum 2 : %d\n", cumulative(x));
+    return 0;
+}
+
+int cumulative (int n){
+    // notice the use of static keyword.
+    static int sum;
+    sum += n;
+    return sum;
+}
+
+

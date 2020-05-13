@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <float.h>
+
+int main(int argc, char** argv){
+    printf("this is a floating point number 1234.123456789 represented as %g\n", (float) 1234.123456789);
+    printf("this is a double number 1234.123456789 represented as %g\n", (double) 1234.123456789);
+    printf("this is a floating point number 1.123456789 represented as %g\n", (float) 1.123456789);
+    printf("this is a double number 1.123456789 represented as %g\n", (double) 1.123456789);
+    printf("\nWe notice that the maximum digits to show is 6 digits only in both cases. So the significand (mantissa) cannot be more than six digits\n\n");
+
+
+    printf("this is a floating point number -1234.123456789 represented as %g\n", (float) -1234.123456789);
+    printf("this is a double number -1234.123456789 represented as %g\n", (double) -1234.123456789);
+    printf("this is a floating point number -1.123456789 represented as %g\n", (float) -1.123456789);
+    printf("this is a double number -1.123456789 represented as %g\n", (double) -1.123456789);
+    printf("\nWe notice that the sign doesn't affect the precision, because a special bit is reserved to store the sign anyway.");
+
+
+    printf("\nthis is a floating point number 1234567890123456789 represented as %g\n", (float) 123456790123456789);
+    printf("this is a double number 12345678901233456789 represented as %g\n", (double) 1234567890123456789);
+}
+

@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main( int argc, char** argv) {
+    int a = 0, b = 1, c = 2;
+    a <<= 1;
+    b <<= 1;
+    c <<= 1;
+    printf("a was 0, now a is %d\n", a);
+    printf("b was 1, now b is %d\n", b);
+    printf("c was 2, now c is %d\n", c);
+}
+
+            

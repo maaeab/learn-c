@@ -1,0 +1,57 @@
+/* author: moemen.ahmed@gmail.com
+ * date: 11 May 20
+ * purpose: explore crating and manipulating arrays in C
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// declare the function calculate
+int* calculate(int* numbers, int size);
+
+int main( int argc, char** argv) {
+    // create an array of numbers carrying in the input
+    int numbers[argc]; // the length of the array equals the number of arguments - 1
+    // retrieve the data casting integer numbers into a new array
+    for (int i = 0; i < (argc - 1); i++) {
+        // TODO: I should check the input types first
+        // Notice that *argv is a pointer to the first character of each argument
+        // We have to check if one argument is more than one character
+        //int buffer = 0;
+        //char temp[10] = {"", "", "", "", "", "", "", "", "", ""};
+        //while (*argv[i+1+buffer] != 32) {
+        //    tepm[buffer] = *argv
+        //    buffer += 1;
+        // }
+        numbers[i] = atoi(argv[i+1]); // (int) (*argv[i+1]) - 48;
+        printf("Number : %d\n", numbers[i]);
+    }
+    //Debugging
+    //printf("Number in slot [0]: %d\n", *numbers);    
+    //printf("Number in slot [1]: %d\n", *(1 + numbers));    
+    //printf("Number from the array: %d\n", numbers[0]);
+    //printf("Number from the array: %d\n", numbers[1]);
+    //End Debugging
+    int* results;
+    results = calculate(numbers, (argc - 1));
+    printf("The sum of the numbers is : %d\n", *results);
+    printf("The avg of the numbers is : %d\n", *(results + 1));
+    return 0;
+}
+
+int* calculate(int* numbers, int size) {
+    int sum = 0.0;
+    int avg = 0.0;
+    // printf("the size : %d\n", size);
+    for (int i = 0; i < size; i++) {
+        printf("Number in calculation: %d\n", *(numbers + i));
+        sum += *(numbers + i);
+    }
+    
+    avg = sum /size;
+    static int results[2];
+    results[0] = sum;
+    results[1] = avg;
+    return results;
+}
+
