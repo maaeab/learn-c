@@ -1,5 +1,6 @@
 /** by: moemen.ahmed@gmail.com
  * date: 16 May 20
+ * referencei to stackoverflow: https://stackoverflow.com/questions/61830512/how-can-i-make-fread-work-properly-in-c-it-fills-my-dynamic-array-with-zeroes 
  * purpose: collect and store countires population input in a binary file, then re-read the file, and sort it by population.
  */
 
@@ -27,12 +28,19 @@ long int totalPopulation = 0;
 Country* countries;
 
 // functions declaration
+// receives the user input and store it in memory
 void addCountry();
+// update the world_share% in each of the structs in memory
 void updateWorldShare();
+// list countries data from memory
 void listCountries();
+// write the list of countries to the file world.dat
 void writeCountries(); 
+// read the data from the file to memory
 void readCountries ();
+// calculate the number of records in the file; update the global variable 'count'
 int fsize(FILE* file); 
+// sort the records in the memory
 void sortCountriesByPopulation();
 
 // main function
@@ -63,7 +71,7 @@ void listCountries(){
     for (int i = 0; i < count; i++) 
     {
         currCountry = countries + (i * sizeof(Country));
-        printf("Country: %s - Population: %ld - World Share: %f %%\n", currCountry->country, (long int) currCountry->population, (float) currCountry->world_share * 100);
+        printf("Country: %s - Population: %ld - World Share: %00.00f %%\n", currCountry->country, (long int) currCountry->population, (float) currCountry->world_share * 100);
     }
     return;
 }

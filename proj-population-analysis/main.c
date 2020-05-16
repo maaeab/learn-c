@@ -71,7 +71,7 @@ void listCountries(){
     for (int i = 0; i < count; i++) 
     {
         currCountry = countries + (i * sizeof(Country));
-        printf("Country: %s - Population: %ld - World Share: %f %%\n", currCountry->country, (long int) currCountry->population, (float) currCountry->world_share * 100);
+        printf("Country: %s - Population: %ld - World Share: %0.00f %%\n", currCountry->country, (long int) currCountry->population, (float) currCountry->world_share * 100);
     }
     return;
 }
